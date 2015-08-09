@@ -1,0 +1,24 @@
+<div class="page-header">
+  <a href="#/"><span class="glyphicon glyphicon-arrow-left pull-left" style="width: 40px; height: 40px; font-size: 30px; margin-top: 5px"></span></a>
+  <h2>Adicionar nova escala</h2>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form class="form-horizontal" ng-submit="saveEscalas()">
+      <b>Lista de Escalas a adicionar</b>
+      <ul ng-form="escalasForm" style="list-style-type: none;">
+        <li ng-repeat="escala in addesc.escalas" ng-form="escalaForm" style="margin-top: 5px; margin-bottom: 5px;">
+          <input type="date" ng-model="escala.data_escala" placeholder="Data Escala" class="col-md-5 input-left" required>
+          <input type="text" ng-model="escala.ministro" name="ministro" placeholder="Ministro" class="col-md-5 input-middle" required>
+        </li>
+      </ul>
+      <div class="form-group">
+        <div class="add-input">
+          <button type="button" class="btn btn-default pull-right" ng-click="addesc.addEscala()">+</button>
+        </div>
+      </div>
+      <button ng-click="addesc.salvarEscalas()" class="btn btn-primary" ng-disabled="escalasForm.$invalid">Pronto</button>
+    </form>
+  </div>
+</div>

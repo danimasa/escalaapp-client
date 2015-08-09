@@ -1,0 +1,161 @@
+<div class="page-header">
+  <a href="#/"><span class="glyphicon glyphicon-arrow-left pull-left" style="width: 40px; height: 40px; font-size: 30px; margin-top: 5px"></span></a>
+  <h2>{{editesc.esc.data_escala | date:'EEEE, dd-MMM'}}</h2>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+          <p class="esc-title">Ministro:</p>
+        </div>
+        <div class="col-md-8">
+          <input type="text" ng-model="editesc.esc.ministro">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p class="esc-title">
+            Intrumentais:
+          </p>
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-10">
+              <angucomplete-alt id="instrument"
+              placeholder="Pesquisar Funcao"
+              pause="400"
+              selected-object="editesc.instrument"
+              local-data="editesc.instruments"
+              title-field="nome"
+              search-fields="funcao"
+              override-suggestions="true"
+              input-class="form-control"/>
+            </div>
+
+            <div class="col-md-2">
+              <button type="button" class="btn btn-primary pull-right" ng-click="editesc.addInstrument()">Adicionar</button>
+            </div>
+          </div>
+          <table class="table table-bordered">
+            <tr>
+              <th>
+                Instrumento
+              </th>
+              <th>
+                Músico
+              </th>
+              <th>
+              </th>
+            </tr>
+            <tr ng-repeat="intrument in editesc.esc.instrumentais">
+              <td>
+                {{intrument.funcao}}
+              </td>
+              <td>
+                {{intrument.nome}}
+              </td>
+              <td>
+                <button type="button" class="btn btn-default" ng-click="editesc.removeInstrument($index)">-</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p class="esc-title">
+            Backs:
+          </p>
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-10">
+              <angucomplete-alt id="backs"
+              placeholder="Pesquisar Back"
+              pause="400"
+              selected-object="editesc.back"
+              local-data="editesc.backs"
+              title-field="nome"
+              search-fields="nome"
+              override-suggestions="true"
+              input-class="form-control"/>
+            </div>
+
+            <div class="col-md-2">
+              <button type="button" class="btn btn-primary pull-right" ng-click="editesc.addBack()">Adicionar</button>
+            </div>
+          </div>
+          <table class="table table-bordered">
+            <tr ng-repeat="back in editesc.esc.backs">
+              <td>
+                {{back.nome}}
+              </td>
+              <td>
+                <button type="button" class="btn btn-default" ng-click="editesc.removeBack($index)">-</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p class="esc-title">
+            Músicas:
+          </p>
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-10">
+              <angucomplete-alt id="musicas"
+              placeholder="Pesquisar Musicas"
+              pause="400"
+              selected-object="editesc.music"
+              local-data="editesc.musicas"
+              title-field="nome"
+              search-fields="nome,author"
+              override-suggestions="true"
+              input-class="form-control"/>
+            </div>
+
+            <div class="col-md-2">
+              <button type="button" class="btn btn-primary pull-right" ng-click="editesc.addMusica()">Adicionar</button>
+            </div>
+          </div>
+
+          <div class="panel panel-default pn-musicas" ng-repeat="musica in editesc.esc.musicas">
+            <div class="panel-heading clearfix">
+              <h3 class="panel-title pull-left">{{musica.nome}}</h3>
+              <button type="button" class="btn btn-primary pull-right" ng-click="editesc.removerMusic($index)">Remover</button>
+              <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;" ng-disabled="musicForm.$invalid" ng-click="editesc.salvarMusic(musica)">Salvar</button>
+            </div>
+            <div class="list-group" ng-form="musicForm">
+              <div class="list-group-item">
+                <p class="list-group-item-text">Cantor</p>
+                <h4 class="list-group-item-heading">
+                  <input type="text" ng-model="musica.author" required>
+                </h4>
+              </div>
+              <div class="list-group-item">
+                <p class="list-group-item-text">Tom</p>
+                <h4 class="list-group-item-heading">
+                  <input type="text" ng-model="musica.tom" required>
+                </h4>
+              </div>
+              <div class="list-group-item">
+                <p class="list-group-item-text">Link</p>
+                <h4 class="list-group-item-heading">
+                  <input type="text" ng-model="musica.link" required>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <button type="button" class="btn btn-primary" ng-click="editesc.salvarEscala()">Salvar</button>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+{
+  "name": "escala-online",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.3.0",
+    "bootstrap-sass-official": "^3.2.0",
+    "angular-animate": "^1.3.0",
+    "angular-cookies": "^1.3.0",
+    "angular-resource": "^1.3.0",
+    "angular-route": "^1.3.0",
+    "angular-sanitize": "^1.3.0",
+    "angular-touch": "^1.3.0",
+    "bootcards": "~1.1.2",
+    "font-awesome": "^0.0.0",
+    "angucomplete-alt": "~1.1.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.3.0"
+  },
+  "appPath": "app",
+  "moduleName": "escalaOnlineApp",
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    },
+    "bootcards": {
+      "main": [
+        "dist/css/bootcards-desktop.css",
+        "dist/js/bootcards.js"
+      ]
+    },
+    "angucomplete-alt": {
+      "main": [
+        "angucomplete-alt.css",
+        "dist/angucomplete-alt.min.js"
+      ]
+    }
+  }
+}

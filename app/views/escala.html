@@ -1,0 +1,92 @@
+<div class="page-header">
+  <a href="#/"><span class="glyphicon glyphicon-arrow-left pull-left" style="width: 40px; height: 40px; font-size: 30px; margin-top: 5px"></span></a>
+  <h2>{{escala.esc.data_escala | date:'EEEE, dd-MMM'}}</h2>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <a type="button" class="btn btn-primary pull-right" ng-href="#/edit/escala/{{escala.id}}">Editar</a>
+    <button type="button" class="btn btn-primary pull-right" style="margin-right: 10px;" ng-click="escala.deletarEscala()">Deletar</button>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+          <p class="esc-title">Ministro:</p>
+        </div>
+        <div class="col-md-8">
+          <p class="esc-info">{{escala.esc.ministro}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p class="esc-title">
+            Intrumentais:
+          </p>
+        </div>
+        <div class="col-md-8">
+          <table class="table table-bordered">
+            <tr>
+              <th>
+                Instrumento
+              </th>
+              <th>
+                Músico
+              </th>
+            </tr>
+            <tr ng-repeat="intrument in escala.esc.instrumentais">
+              <td>
+                {{intrument.funcao}}
+              </td>
+              <td>
+                {{intrument.nome}}
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p class="esc-title">
+            Backs:
+          </p>
+        </div>
+        <div class="col-md-8">
+          <table class="table table-bordered">
+            <tr ng-repeat="back in escala.esc.backs">
+              <td>
+                {{back.nome}}
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p class="esc-title">
+            Músicas:
+          </p>
+        </div>
+        <div class="col-md-8">
+          <div class="panel panel-default pn-musicas" ng-repeat="musica in escala.esc.musicas">
+            <div class="panel-heading clearfix">
+              <h3 class="panel-title pull-left">{{musica.nome}}</h3>
+            </div>
+            <div class="list-group">
+              <div class="list-group-item">
+                <p class="list-group-item-text">Cantor</p>
+                <h4 class="list-group-item-heading">{{musica.author}}</h4>
+              </div>
+              <div class="list-group-item">
+                <p class="list-group-item-text">Tom</p>
+                <h4 class="list-group-item-heading">{{musica.tom}}</h4>
+              </div>
+              <div class="list-group-item">
+                <p class="list-group-item-text">Link</p>
+                <h4 class="list-group-item-heading"><a href="{{musica.link}}">{{musica.link}}</a></h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
