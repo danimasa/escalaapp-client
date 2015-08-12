@@ -8,7 +8,12 @@
  * Controller of the escalaOnlineApp
  */
 angular.module('escalaOnlineApp')
-  .controller('AddEscalaCtrl', function (EscalaApi, $location) {
+  .controller('AddEscalaCtrl', function (EscalaApi, $location, senha) {
+    var digSenha = prompt('Digite a senha para acessar:');
+    if(digSenha == null || digSenha != senha){
+      $location.path('#/');
+    }
+
     this.escalas = [{data_escala: new Date(), ministro: ''}];
 
     this.addEscala = function(){

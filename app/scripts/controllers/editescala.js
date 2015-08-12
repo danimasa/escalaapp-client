@@ -8,7 +8,11 @@
  * Controller of the escalaOnlineApp
  */
 angular.module('escalaOnlineApp')
-  .controller('EditEscalaCtrl', function (EscalaApi, MusicaApi, BackApi, InstrumentApi, $routeParams, $location) {
+  .controller('EditEscalaCtrl', function (EscalaApi, MusicaApi, BackApi, InstrumentApi, $routeParams, $location, senha) {
+    var digSenha = prompt('Digite a senha para acessar:');
+    if(digSenha == null || digSenha != senha){
+      $location.path('#/');
+    }
 
     this.esc = EscalaApi.get({id: $routeParams.id});
     this.musicas = MusicaApi.query();
