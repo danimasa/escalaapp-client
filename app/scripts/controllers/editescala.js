@@ -55,11 +55,6 @@ angular.module('escalaOnlineApp')
       this.esc.musicas.splice(index, 1);
     };
 
-    this.salvarMusic = function(musica){
-      if(musica.id == null) MusicaApi.save(musica);
-      else musica.$update();
-    };
-
     this.salvarEscala = function(){
       var escbacks = [];
       for(var i = 0; i < this.esc.backs.length; i++){

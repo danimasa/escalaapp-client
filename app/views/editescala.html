@@ -124,32 +124,8 @@
             </div>
           </div>
 
-          <div class="panel panel-default pn-musicas" ng-repeat="musica in editesc.esc.musicas">
-            <div class="panel-heading clearfix">
-              <h3 class="panel-title pull-left">{{musica.nome}}</h3>
-              <button type="button" class="btn btn-primary pull-right" ng-click="editesc.removerMusic($index)">Remover</button>
-              <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;" ng-disabled="musicForm.$invalid" ng-click="editesc.salvarMusic(musica)">Salvar</button>
-            </div>
-            <div class="list-group" ng-form="musicForm">
-              <div class="list-group-item">
-                <p class="list-group-item-text">Cantor</p>
-                <h4 class="list-group-item-heading">
-                  <input type="text" ng-model="musica.author" required>
-                </h4>
-              </div>
-              <div class="list-group-item">
-                <p class="list-group-item-text">Tom</p>
-                <h4 class="list-group-item-heading">
-                  <input type="text" ng-model="musica.tom" required>
-                </h4>
-              </div>
-              <div class="list-group-item">
-                <p class="list-group-item-text">Link</p>
-                <h4 class="list-group-item-heading">
-                  <input type="text" ng-model="musica.link" required>
-                </h4>
-              </div>
-            </div>
+          <div ng-repeat="musica in editesc.esc.musicas" style="margin-top: 10px;">
+            <music-card musica="musica" enable-edit="true" inner-controller="editesc" index="{{$index}}"></music-card>
           </div>
         </div>
       </div>

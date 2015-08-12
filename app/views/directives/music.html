@@ -1,0 +1,59 @@
+<div class="panel panel-default pn-musicas">
+  <div class="panel-heading clearfix">
+    <h3 class="panel-title pull-left">{{musica.nome}}</h3>
+    <div ng-if="enableEdit == true">
+      <button type="button" class="btn btn-primary pull-right" ng-click="removeBtn()">Remover</button>
+      <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;" ng-disabled="musicForm.$invalid" ng-click="editBtn()">
+        <div ng-switch on="edit">
+          <div ng-switch-when="true">
+            Salvar
+          </div>
+          <div ng-switch-default>
+            Editar
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class="list-group" ng-form="musicForm">
+    <div class="list-group-item">
+      <p class="list-group-item-text">Cantor</p>
+      <div ng-switch on="edit">
+        <div ng-switch-when="true">
+          <div class="list-group-item-heading">
+            <input type="text" class="form-control" ng-model="musica.author" required>
+          </div>
+        </div>
+        <div ng-switch-default>
+          <h4 class="list-group-item-heading">{{musica.author}}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="list-group-item">
+      <p class="list-group-item-text">Tom</p>
+      <div ng-switch on="edit">
+        <div ng-switch-when="true">
+          <div class="list-group-item-heading">
+            <input type="text" class="form-control" ng-model="musica.tom" required>
+          </div>
+        </div>
+        <div ng-switch-default>
+          <h4 class="list-group-item-heading">{{musica.tom}}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="list-group-item">
+      <p class="list-group-item-text">Link</p>
+      <div ng-switch on="edit">
+        <div ng-switch-when="true">
+          <div class="list-group-item-heading">
+            <input type="text" class="form-control" ng-model="musica.link" required>
+          </div>
+        </div>
+        <div ng-switch-default>
+          <h4 class="list-group-item-heading">{{musica.link}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
