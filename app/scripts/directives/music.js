@@ -30,7 +30,9 @@ angular.module('escalaOnlineApp')
                 $scope.musica.id = data.id;
               });
             }
-            else $scope.musica.$update();
+            else {
+              MusicaApi.update($scope.musica);
+            }
             $scope.edit = false;
           }
         };
