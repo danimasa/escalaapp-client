@@ -15,7 +15,7 @@
         </form>
       </div>
       <div class="list-group">
-        <a class="list-group-item" ng-href="#/escala/{{escala.id}}" ng-repeat="escala in main.escalas | filter:searchEsc">
+        <a class="list-group-item" ng-href="#/escala/{{escala.id}}" ng-repeat="escala in main.escalas | filter:searchEsc | orderBy:'data_escala'">
           <span class="glyphicon glyphicon-calendar pull-left" style="width: 40px; height: 40px; font-size: 24px; margin-top: 5px"></span>
           <h4 class="list-group-item-heading">{{escala.data_escala | date:'EEEE, dd-MMM'}}</h4>
           <p class="list-group-item-text">Ministro: {{escala.ministro}}</p>
