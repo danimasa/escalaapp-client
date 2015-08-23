@@ -19,7 +19,7 @@
           <td><input class="form-control" type="text" ng-model="musica.nome" required></input></td>
           <td><input class="form-control" type="text" ng-model="musica.author" required></input></td>
           <td><input class="form-control" type="text" ng-model="musica.tom"></input></td>
-          <td><input class="form-control" type="text" ng-model="musica.link"></input></td>
+          <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#youtube-modal">YouTube</button></td>
           <td class="btn-table"><button type="button" class="btn btn-default" ng-click="main.musicas.splice($index,1)">-</button></td>
         </tr>
       </table>
@@ -27,3 +27,5 @@
     </form>
   </div>
 </div>
+
+<youtube-search q="freire"></youtube-search>

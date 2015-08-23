@@ -30,4 +30,9 @@ angular.module('escalaOnlineApp')
     this.removeMusica = function(index){
       this.musicas.splice(index, 1);
     };
+
+    this.showModal = false;
+    this.toggleModal = function() {
+      this.showModal = !this.showModal;
+    };
   });
