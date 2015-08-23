@@ -1,0 +1,29 @@
+<div class="page-header">
+  <a href="#/musica"><span class="glyphicon glyphicon-arrow-left pull-left" style="width: 40px; height: 40px; font-size: 30px; margin-top: 5px"></span></a>
+  <h2>Adicionar Músicas</h2>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form class="form-horizontal" ng-submit="saveEscalas()">
+      <b>Lista de Músicas a adicionar</b>
+      <table class="table table-bordered" ng-form="musicasForm">
+        <tr>
+          <th>Nome</th>
+          <th>Cantor</th>
+          <th>Tom</th>
+          <th>Link</th>
+          <th class="btn-table"><button type="button" class="btn btn-default" ng-click="main.addMusica()">+</button></th>
+        </tr>
+        <tr ng-repeat="musica in main.musicas">
+          <td><input class="form-control" type="text" ng-model="musica.nome" required></input></td>
+          <td><input class="form-control" type="text" ng-model="musica.author" required></input></td>
+          <td><input class="form-control" type="text" ng-model="musica.tom"></input></td>
+          <td><input class="form-control" type="text" ng-model="musica.link"></input></td>
+          <td class="btn-table"><button type="button" class="btn btn-default" ng-click="main.musicas.splice($index,1)">-</button></td>
+        </tr>
+      </table>
+      <button ng-click="main.salvarMusicas()" class="btn btn-primary" ng-disabled="musicasForm.$invalid">Pronto</button>
+    </form>
+  </div>
+</div>

@@ -40,6 +40,16 @@ angular
         controller: 'EditEscalaCtrl',
         controllerAs: 'editesc'
       })
+      .when('/musica', {
+        templateUrl: 'views/musica.html',
+        controller: 'MusicaCtrl',
+        controllerAs: 'main'
+      })
+      .when('/add/musica', {
+        templateUrl: 'views/addmusica.html',
+        controller: 'AddMusicaCtrl',
+        controllerAs: 'main'
+      })
       .otherwise({
         redirectTo: '/'
       });
