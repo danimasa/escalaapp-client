@@ -1,18 +1,47 @@
-<!--<div class="modal fade" id="youtube-modal" tabindex="-1" role="dialog" aria-labelledby="youtubeLabel">
+<div class="modal fade" id="youtube-modal" tabindex="-1" role="dialog" aria-labelledby="youtubeLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-        <button type="button" class="btn btn-default pull-right" ng-click="search()">Pesquisar</button>
-        <input type="text" class="form-control" ng-model="q">
-      <!-- </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3>Buscas Músicas no YouTube</h3>
+      </div>
       <div class="modal-body">
-        ...
+        <div class="input-group">
+          <input type="text" class="form-control" ng-model="q">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="search()">
+              Pesquisar
+            </button>
+          </span>
+        </div>
+
+        <div class="panel panel-default" ng-show="selectedVideo != ''">
+          <div class="panel-heading clearfix">
+            <h3 class="panel-title pull-left">{{selectedVideo.snippet.title}}</h3>
+            <button type="button" class="btn btn-default pull-right">
+              <i class="fa fa-check"></i>
+              Selecionar
+            </button>
+          </div>
+          <div class="panel-body">
+            <youtube-video video-id="selectedVideo.id.videoId"></youtube-video>
+          </div>
+        </div>
+
+        <div class="list-group">
+          <a ng-click="selectVideo($index)" class="list-group-item" ng-class="getClass($index)" ng-repeat="result in results">
+            <div class="row">
+              <div class="col-md-2">
+                <img src="{{result.snippet.thumbnails.high.url}}" alt="{{result.snippet.title}}" style="width: 60px; height: 60px">
+              </div>
+              <div class="col-md-10">
+                <h4 class="list-group-item-heading">{{result.snippet.title}}</h4>
+                <p class="list-group-item-text">{{result.snippet.description}}</p>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
-</div> -->
-
-<ul ng-repeat="result in results">
-  <li><a href="https://www.youtube.com/watch?v={{result.id.videoId}}">{{result.snippet.title}}</a></li>
-</ul>
+</div>

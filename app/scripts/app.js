@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'angucomplete-alt'
+    'angucomplete-alt',
+    'youtube-embed'
   ])
   .config(function ($routeProvider) {
     $routeProvider

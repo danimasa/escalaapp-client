@@ -35,6 +35,7 @@ module.exports = function(config) {
       'bower_components/fastclick/lib/fastclick.js',
       'bower_components/bootcards/dist/js/bootcards.js',
       'bower_components/angucomplete-alt/dist/angucomplete-alt.min.js',
+      'bower_components/angular-youtube-mb/src/angular-youtube-embed.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
