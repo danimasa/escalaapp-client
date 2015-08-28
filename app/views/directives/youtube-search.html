@@ -15,7 +15,7 @@
   <div class="panel panel-default" ng-show="selected != ''">
     <div class="panel-heading clearfix">
       <h3 class="panel-title pull-left">{{selected.snippet.title}}</h3>
-      <button type="button" class="btn btn-default pull-right">
+      <button type="button" class="btn btn-default pull-right" ng-click="confirmSelection()">
         <i class="fa fa-check"></i>
         Selecionar
       </button>

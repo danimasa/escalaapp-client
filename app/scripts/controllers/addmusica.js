@@ -14,10 +14,10 @@ angular.module('escalaOnlineApp')
       $location.path('#/musica');
     }
 
-    this.musicas = [{nome: "", author: "", tom: "", link: ""}];
+    this.musicas = [{nome: "", author: "", tom: "", link: "", linkTitle: ""}];
 
     this.addMusica = function(){
-      this.musicas.push({nome: "", author: "", tom: "", link: ""});
+      this.musicas.push({nome: "", author: "", tom: "", link: "", linkTitle: ""});
     };
 
     this.salvarMusicas = function(){
@@ -31,10 +31,24 @@ angular.module('escalaOnlineApp')
       this.musicas.splice(index, 1);
     };
 
-    this.openYouTubeModal = function(){
-      ngDialog.open({
+    this.openYouTubeModal = function(index){
+      var query = this.musicas[index].nome + ' ' + this.musicas[index].author;
+      var dialog = ngDialog.open({
         template: 'views/directives/youtube-search.html',
-        controller: 'YouTubeCtrl'
-      })
+        controller: 'YouTubeCtrl',
+        resolve: {
+          q: function queryFactory(){
+            return query;
+          }
+        }
+      });
+
+      var scope = this;
+      dialog.closePromise.then(function(data) {
+        if(data !== undefined || data != ''){
+          scope.musicas[index].linkTitle = data.value.snippet.title;
+          scope.musicas[index].link = data.value.id.videoId;
+        }
+      });
     };
   });

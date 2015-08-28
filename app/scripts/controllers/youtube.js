@@ -8,7 +8,8 @@
  * Controller of the escalaOnlineApp
  */
 angular.module('escalaOnlineApp')
-  .controller('YouTubeCtrl', function ($scope, $http) {
+  .controller('YouTubeCtrl', function ($scope, $http, q) {
+    $scope.q = q;
     $scope.results = [];
     var selected = 0;
     $scope.selected = '';
@@ -24,7 +25,6 @@ angular.module('escalaOnlineApp')
         }
       })
       .success( function (data) {
-        console.log(data);
         $scope.results = data.items;
         selected = 0;
         $scope.selected = $scope.results[0];
@@ -49,7 +49,9 @@ angular.module('escalaOnlineApp')
       return 'https://www.youtube.com/embed/' + $scope.selected.id.videoId;
     };
 
-    $scope.close = function(){
-      $scope.closeThisDialog('Cancel');
+    $scope.confirmSelection = function(){
+      $scope.closeThisDialog($scope.selected);
     };
+
+    if($scope.q != ' ') $scope.search();
   });

@@ -19,7 +19,16 @@
           <td><input class="form-control" type="text" ng-model="musica.nome" required></input></td>
           <td><input class="form-control" type="text" ng-model="musica.author" required></input></td>
           <td><input class="form-control" type="text" ng-model="musica.tom"></input></td>
-          <td><button type="button" class="btn btn-default" ng-click="main.openYouTubeModal()">YouTube</button></td>
+          <td ng-show="musica.link == ''">
+            <button type="button" class="btn btn-default" ng-click="main.openYouTubeModal($index)">
+              <i class="fa fa-youtube"></i>
+              YouTube
+            </button>
+          </td>
+          <td ng-show="musica.link != ''">
+            <i class="fa fa-youtube-play"></i>
+            <a ng-click="main.openYouTubeModal($index)">{{musica.linkTitle}}</a>
+          </td>
           <td class="btn-table"><button type="button" class="btn btn-default" ng-click="main.removeMusica($index)">-</button></td>
         </tr>
       </table>
