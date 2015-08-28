@@ -8,7 +8,7 @@
  * Controller of the escalaOnlineApp
  */
 angular.module('escalaOnlineApp')
-  .controller('AddMusicaCtrl', function (MusicaApi, $location, senha) {
+  .controller('AddMusicaCtrl', function (MusicaApi, $location, senha, ngDialog) {
     var digSenha = prompt('Digite a senha para acessar:');
     if(digSenha == null || digSenha != senha){
       $location.path('#/musica');
@@ -31,8 +31,10 @@ angular.module('escalaOnlineApp')
       this.musicas.splice(index, 1);
     };
 
-    this.showModal = false;
-    this.toggleModal = function() {
-      this.showModal = !this.showModal;
+    this.openYouTubeModal = function(){
+      ngDialog.open({
+        template: 'views/directives/youtube-search.html',
+        controller: 'YouTubeCtrl'
+      })
     };
   });

@@ -36,6 +36,8 @@ module.exports = function(config) {
       'bower_components/bootcards/dist/js/bootcards.js',
       'bower_components/angucomplete-alt/dist/angucomplete-alt.min.js',
       'bower_components/angular-youtube-mb/src/angular-youtube-embed.js',
+      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'bower_components/ngDialog/js/ngDialog.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
