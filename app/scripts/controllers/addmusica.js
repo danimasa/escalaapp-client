@@ -47,7 +47,7 @@ angular.module('escalaOnlineApp')
       dialog.closePromise.then(function(data) {
         if(data !== undefined || data != ''){
           scope.musicas[index].linkTitle = data.value.snippet.title;
-          scope.musicas[index].link = data.value.id.videoId;
+          scope.musicas[index].link = 'https://www.youtube.com/watch?v=' + data.value.id.videoId;
         }
       });
     };
